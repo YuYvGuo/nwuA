@@ -87,6 +87,43 @@ git diff
 
 之后再用 git status 查看仓库状态，就会给出“工作目录是干净的”提示。
 
+### 版本回退
+
+Git 会保存文件的快照，这个快照就是 commit 。一旦有需求，就可以从最近的一个 commit 恢复文件，然后继续工作。
+
+可以使用 git log 命令查看修改的历史纪录。如果嫌输出信息太多，也可以加上 --pretty=oneline 参数。
+
+```Shell
+git log
+git log --pretty=oneline
+```
+
+> 必须要在 .git 文件存在的目录下才能使用该命令。
+
+在 Git 中，使用 HEAD 表示当前版本，上一个版本是 HEAD^ ，上上个是 HEAD^^ ，往上100个可以用 HEAD~100 来表示。
+
+若是想要将当前版本的文件回退到上一个版本，可以使用 git reset 命令。
+
+```Shell
+git reset --hard HEAD^
+```
+
+回退之后再使用 git log ，就看不到回退前的最新版本了，就好像真的回到了从前。
+
+回到从前的方法，就是顺着尚未关闭的命令行，找到之前的个版本的 commit id ，再次使用 git reset 。
+
+```Shell
+git reset --hard 1094a
+```
+
+> 需要用版本号去索引，不过没必要写全， Git 会自动去找。
+>> Git 内部有个指向当前版本的 HEAD 指针，所以改变版本就是改变指针指向而已。
+
+为了防止不小心关掉了命令行界面， Git 提供了一个 git reflog 命令来记录每一次命令。
+
+```Shell
+git reflog
+```
 
 
 
