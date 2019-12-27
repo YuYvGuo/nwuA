@@ -1,0 +1,87 @@
+# Git
+
+Git is a version control system.
+
+Git is free software.
+
+## 设置当前机器的身份
+
+Windows 上使用 Git 时，要打开应用程序 Git Bash 才行。
+
+```Shell
+git config --global user.name ""
+git config --global user.email ""
+```
+
+> --global 参数表示，位于该计算机上的所有 Git 仓库都会使用这个配置。
+
+## 创建版本库
+
+选一个合适的地方，创建空目录，使用 pwd 命令查看当前目录。
+
+> 尽量使用全英文的目录。
+>> 使用已有东西的地方也可以，但不建议新手这么做。
+
+```Shell
+mkdir GitStore
+cd GitStore
+pwd
+```
+
+通过 git init 命令，将该目录转换为 Git 可以管理的仓库。
+
+> 当前目录下会多出一个 .git 的目录，用来跟踪管理版本库，别乱动。
+>> 该目录默认隐藏看不见的话，使用 ls -ah 命令即可看见。
+
+```Shell
+git init
+```
+
+## 将文件添加到版本库
+
+***所有的版本控制系统，只能跟踪文本文件的改动！！！***
+
+*微软的 Word 文档是二进制的，并不是文本文档……所以可惜了。*
+
+将编写后的 UTF-8 编码的文档放到我们制作的目录下，子文件夹也可，然后添加到仓库并进行提交。
+
+git 有两个区域，工作区和暂存区。
+
+每次修改文件，文件会进入工作区。
+
+* git add 就是把工作区的修改，提交到暂存区。
+* git commit 就是把暂存区的修改，保存至本地库。
+* git push 就是把本地库的记录，推送至远程库。
+
+```Shell
+git add XXX.txt
+git commit -m "入门文档"
+```
+
+> -m 后面是本次提交的说明，可以输入任意内容。
+>> 不要用 Windows 自带的记事本编辑，使用Notepad++，并选择 UTF-8 without BOM 即可。
+
+commit 可以一次性提交很多文件，所以之前可以多次 add 。
+
+```Shell
+git add file1.txt
+git add file2.txt file3.txt
+git commit -m "add 3 files."
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
