@@ -69,6 +69,23 @@ git add file2.txt file3.txt
 git commit -m "add 3 files."
 ```
 
+## 时光穿梭机
+
+修改内容后，使用 git status 命令查看仓库当前的状态。可以显示至今为止对仓库进行的修改。
+
+```Shell
+git status
+```
+
+至于如何修改的，则需要使用 git diff 查看修改的细节。
+
+```Shell
+git diff
+```
+
+搞明白做了什么修改之后，再使用 git add ，会返回将要提交的修改文件，然后就可以放心提交了。
+
+之后再用 git status 查看仓库状态，就会给出“工作目录是干净的”提示。
 
 
 
