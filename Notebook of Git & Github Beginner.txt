@@ -226,7 +226,10 @@ git commit
 
 > 如此一来，该文件才完全从版本库中被删除。
 
-若是删错了，就可以使用 git checkout -- filename.txt 命令，从版本库中恢复最新版本入工作区。
+若是删错了，就可以使用 git checkout -- filename.txt 命令，从版本库复制其最新版本到工作区。
+
+* 若是文件修改后没提交到暂存区，撤销修改后就进入了和版本库中一样的状态；
+* 若是已经添加到暂存区之后，工作区的文件又进行了修改，撤销修改后就回到了暂存区中的状态。
 
 ```Shell
 git checkout -- filename.txt
@@ -234,7 +237,10 @@ git checkout -- filename.txt
 
 > 没有 commit 就被删除的文件，是无法恢复的。
 
+---
+---
 
+## 远程仓库
 
 
 
