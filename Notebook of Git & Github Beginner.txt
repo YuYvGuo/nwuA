@@ -4,6 +4,9 @@ Git is a version control system.
 
 Git is free software.
 
+---
+---
+
 ## 设置当前机器的身份
 
 Windows 上使用 Git 时，要打开应用程序 Git Bash 才行。
@@ -14,6 +17,9 @@ git config --global user.email ""
 ```
 
 > --global 参数表示，位于该计算机上的所有 Git 仓库都会使用这个配置。
+
+---
+---
 
 ## 创建版本库
 
@@ -36,6 +42,9 @@ pwd
 ```Shell
 git init
 ```
+
+---
+---
 
 ## 将文件添加到版本库
 
@@ -69,6 +78,8 @@ git add file2.txt file3.txt
 git commit -m "add 3 files."
 ```
 
+---
+
 ## 时光穿梭机
 
 修改内容后，使用 git status 命令查看仓库当前的状态。可以显示至今为止对仓库进行的修改。
@@ -86,6 +97,8 @@ git diff
 搞明白做了什么修改之后，再使用 git add ，会返回将要提交的修改文件，然后就可以放心提交了。
 
 之后再用 git status 查看仓库状态，就会给出“工作目录是干净的”提示。
+
+---
 
 ### 版本回退
 
@@ -127,6 +140,8 @@ git reflog
 
 > 该命令的输出会在前头给出历史命令所在版本的坐标前一部分。
 
+---
+
 ### 工作区和暂存区
 
 在电脑中创建的目录，如 GIT 文件夹，就是工作区。
@@ -154,6 +169,8 @@ git reflog
 
 > 使用 git status 命令，可以方便查看工作区和暂存区中的状态。
 
+---
+
 ### 管理修改
 
 ***Git 跟踪修改，而非文件。***
@@ -162,6 +179,26 @@ git reflog
 
 > Git 管理的是修改，改一被推进暂存区，但是改二没有，所以 git commit 提交的是暂存区中的改一版本。
 
+提交后，使用 git diff HEAD -- readme.txt 命令，查看工作区和版本库里最新版本的区别。
+
+```Shell
+git diff HEAD -- filename.txt
+```
+
+---
+
+### 撤销修改
+
+手动恢复文件到上一个版本，使用 git restore filename.txt 命令。
+
+```Shell
+git restore filename.txt
+```
+
+> 就是丢弃工作区的修改，回到上一个 git add ，或者 git commit 后，暂存区中或者默认分支中的状态。
+>> 教程中使用的是 git checkout -- file 命令，不知道是不是版本变了。
+
+大人，时代变啦~！
 
 
 
