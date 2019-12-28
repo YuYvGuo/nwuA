@@ -189,7 +189,7 @@ git diff HEAD -- filename.txt
 
 ### 撤销修改
 
-手动恢复文件到上一个版本，使用 git restore filename.txt 命令。
+在工作区中，手动恢复文件到上一个版本，使用 git restore filename.txt 命令。
 
 ```Shell
 git restore filename.txt
@@ -198,7 +198,43 @@ git restore filename.txt
 > 就是丢弃工作区的修改，回到上一个 git add ，或者 git commit 后，暂存区中或者默认分支中的状态。
 >> 教程中使用的是 git checkout -- file 命令，不知道是不是版本变了。
 
-大人，时代变啦~！
+若文件已经提交到暂存区，使用 git restore --staged filename.txt 命令，将暂存区的文件退回工作区。
+
+```Shell
+git restore --staged filename.txt
+```
+
+若是已经提交到了本地的版本库，那么就使用前面的版本回退功能进行修改。
+
+---
+
+### 删除文件
+
+一般情况下，都是直接在文件管理器中把文件直接删除了，这样工作区和版本库就不一致了， git status 会立即回馈那些文件被删除了。
+
+```Shell
+rm filename.txt
+git status
+```
+
+如果确实要从版本库中删除该文件，就要使用 git rm 命令来进行删除，并且随后 git commit 。
+
+```Shell
+git rm
+git commit
+```
+
+> 如此一来，该文件才完全从版本库中被删除。
+
+若是删错了，就可以使用 git checkout -- filename.txt 命令，从版本库中恢复最新版本入工作区。
+
+```Shell
+git checkout -- filename.txt
+```
+
+> 没有 commit 就被删除的文件，是无法恢复的。
+
+
 
 
 
